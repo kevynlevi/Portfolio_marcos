@@ -10,17 +10,27 @@
 body {
   color: white;
   background: black;
+  padding-top: 80px;
 }
-
 
 header {
   position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 80px;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 20px 50px;
+  align-items: center;
+  padding: 0 50px;
   background: rgba(0,0,0,0.4);
   backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+header.scrolled {
+  background: rgba(0,0,0,0.8);
 }
 
 header h1 span {
@@ -38,25 +48,28 @@ nav a:hover {
   color: #a855f7;
 }
 
-
 .hero {
-  height: 100vh;
+  height: calc(100vh - 80px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 100px;
+  padding: 0 140px;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(23, 2, 18, 0.9)),
               url('img/fundo.png');
   background-size: cover;
   background-position: center;
 }
 
+.left {
+  max-width: 500px;
+}
+
 .left h2 {
-  font-size: 40px;
+  font-size: 36px;
 }
 
 .gradient {
-  font-size: 70px;
+  font-size: 60px;
   background: linear-gradient(90deg, #a855f7, #6366f1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -78,6 +91,7 @@ button {
   border: none;
   cursor: pointer;
   font-weight: 500;
+  transition: 0.3s;
 }
 
 .primary {
@@ -94,7 +108,6 @@ button {
 button:hover {
   transform: scale(1.05);
 }
-
 
 .icons {
   margin-top: 20px;
@@ -113,26 +126,25 @@ button:hover {
 }
 
 .circle {
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   border: 3px solid #6366f1;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-
   box-shadow: 0 0 30px #6366f1;
   animation: pulse 3s infinite;
+  transform: translateY(30px);
 }
 
 .circle img {
-  width: 100% ;
+  width: 100%;
   height: 100%;
-  object-fit:cover;
+  object-fit: cover;
   border-radius: 50%;
 }
-
 
 @keyframes pulse {
   0% { box-shadow: 0 0 20px #6366f1; }
@@ -141,9 +153,9 @@ button:hover {
 }
 
 .sobre {
-  padding: 100px 80px;
-  background: radial-ggradient(circle at center, rgba(168,85,247,0.15), transparent 60%),
-  #0a0a0a;
+  padding: 150px 80px;
+  background: radial-gradient(circle at center, rgba(168,85,247,0.15), transparent 60%),
+              #0d0217;
   text-align: center;
 }
 
@@ -151,6 +163,7 @@ button:hover {
   font-size: 40px;
   margin-bottom: 10px;
 }
+
 .sobre h2 span {
   color:#a855f7;
 }
@@ -174,8 +187,9 @@ button:hover {
   background: linear-gradient(45deg,#6366f1, #a855f7);
   box-shadow: 0 0 25px rgba(168,85,247,0.5);
 }
+
 .sobre-img img{
-  width:300px;
+  width:400px;
   border-radius:10px;
   display:block;
 }
@@ -200,6 +214,7 @@ button:hover {
   justify-content: space-between;
   margin: 20px 0;
 }
+
 .info p {
   margin-bottom: 8px;
 }
@@ -208,4 +223,128 @@ button:hover {
   margin-top: 20px;
   display: flex;
   gap: 20px;
+}
+
+
+.projetos {
+  padding: 150px 10%;
+  background: radial-gradient(circle at top left, #1a0826, #050505 60%);
+  color: white;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.titulo h2 {
+  font-size: 42px;
+}
+
+.titulo span {
+  background: linear-gradient(90deg, #a855f7, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.titulo p {
+  color: #aaa;
+  margin-top: 10px;
+}
+
+.grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(168,85,247,0.2);
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(168,85,247,0.3), transparent);
+  top: -100%;
+  left: -100%;
+  transform: rotate(25deg);
+  transition: 0.6s;
+}
+
+.card:hover::before {
+  top: 100%;
+  left: 100%;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border: 1px solid #a855f7;
+  box-shadow: 0 0 40px rgba(168,85,247,0.3);
+}
+
+.card h3 {
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #bbb;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.tags span {
+  display: inline-block;
+  background: rgba(168,85,247,0.15);
+  color: #a855f7;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 20px;
+  color: #6366f1;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.card a:hover {
+  color: #a855f7;
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.fade-delay-1 {
+  animation-delay: 0.3s;
+}
+
+.fade-delay-2 {
+  animation-delay: 0.6s;
+}
+
+.fade-delay-3 {
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
