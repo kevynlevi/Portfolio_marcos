@@ -8,6 +8,7 @@
 }
 
 body {
+  margin:0;
   color: white;
   background: black;
   padding-top: 80px;
@@ -46,6 +47,9 @@ nav a {
 
 nav a:hover {
   color: #a855f7;
+}
+section {
+  margin: 0;
 }
 
 .hero {
@@ -153,60 +157,117 @@ button:hover {
 }
 
 .sobre {
-  padding: 150px 80px;
-  background: radial-gradient(circle at center, rgba(168,85,247,0.15), transparent 60%),
-              #0d0217;
-  text-align: center;
+  position: relative;
+  padding: 80px 10%;
+  background: #0d0217;
+}
+.sobre::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, #0d0217);
+
 }
 
-.sobre h2 {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-
-.sobre h2 span {
-  color:#a855f7;
-}
-
-.subtitle {
-  color: #aaa;
-  margin-bottom:60px;
-}
-
-.sobre-container {
+.sobre-wrapper {
   display: flex;
-  align-items:center;
-  justify-content: center;
   gap: 60px;
-  text-align:left;
 }
 
-.sobre-img {
-  padding: 10px;
+.sobre-left {
+  width: 30%;
+}
+
+.foto {
+  border: 2px solid #a855f7;
   border-radius: 15px;
-  background: linear-gradient(45deg,#6366f1, #a855f7);
-  box-shadow: 0 0 25px rgba(168,85,247,0.5);
+  padding: 5px;
+  box-shadow: 0 0 30px #a855f7;
 }
 
-.sobre-img img{
-  width:400px;
-  border-radius:10px;
-  display:block;
+.foto img {
+  width: 100%;
+  border-radius: 10px;
 }
 
-.sobre-texto {
-  max-width:600px;
+.dados {
+  margin-top: 20px;
 }
 
-.sobre-texto h3{
-  font-size: 28px;
-  margin-bottom:15px;
+.dados p {
+  margin-bottom: 8px;
 }
 
-.sobre-texto p{
-  color: #ccc;
-  line-height: 1.6;
+.habilidades {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.habilidades span {
+  background: rgba(168,85,247,0.15);
+  color: #a855f7;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+
+.sobre-right {
+  width: 55%;
+}
+
+.sobre-right h2 {
+  font-size: 32px;
   margin-bottom: 20px;
+}
+
+.sobre-right p {
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+/* TIMELINE */
+.timeline {
+  margin-top: 30px;
+  border-left: 2px solid #a855f7;
+  padding-left: 20px;
+}
+
+.item {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.bolinha {
+  width: 10px;
+  height: 10px;
+  background: #a855f7;
+  border-radius: 50%;
+  position: absolute;
+  left: -26px;
+  top: 5px;
+}
+
+.item h4 {
+  margin: 0;
+}
+
+.item span {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.evolucao {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid rgba(168,85,247,0.3);
+  border-radius: 15px;
+  background: rgba(255,255,255,0.03);
 }
 
 .info {
@@ -227,9 +288,20 @@ button:hover {
 
 
 .projetos {
+  position: relative;
   padding: 150px 10%;
   background: radial-gradient(circle at top left, #1a0826, #050505 60%);
-  color: white;
+}
+
+.projetos::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+
+  background: linear-gradient(to bottom, transparent, #1a0826);
 }
 
 .titulo {
@@ -323,6 +395,18 @@ button:hover {
 
 .card a:hover {
   color: #a855f7;
+}
+.video{
+  width:100%;
+  height:180px;
+  border-radius:15px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+.video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 .fade-up {
   opacity: 0;
